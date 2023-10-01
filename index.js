@@ -255,9 +255,28 @@ Aşağıdakileri sesliHarfSayaci fonskiyonunda yap.
 İPUCU - .includes() methoduna bakabilirsin. (https://www.w3schools.com/jsref/jsref_includes.asp)
 */
 
-function sesliHarfSayaci(/*buraya kodunu yazabilirsin*/) {
-  /*buraya kodunu yazabilirsin*/
+function sesliHarfSayaci(texter) {
+  let count = 0;
+  let editText = texter.toLowerCase();
+  editText = editText.split("");
+  console.log(editText);
+  let sesliHarfler = ["a", "e", "i", "o", "ö", "u", "ü"];
+  for (let i = 0; i < editText.length; i++) {
+    for (let j = 0; j < sesliHarfler.length; j++) {
+      if (
+        typeof editText[i] == "string" &&
+        editText[i].includes(sesliHarfler[j])
+      ) {
+        count++;
+      }
+    }
+  }
+  return count;
 }
+
+let metin = "Bugün çok yorgun olduğumu hissediyorum.";
+
+console.log("Bonus: Sesli Harf Sayaci", sesliHarfSayaci(metin));
 
 /* Lütfen bu satırın alt tarafını değiştirmeyin */
 function sa() {
