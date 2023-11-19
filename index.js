@@ -262,15 +262,11 @@ function sesliHarfSayaci(texter) {
   console.log(editText);
   let sesliHarfler = ["a", "e", "i", "o", "ö", "u", "ü"];
   for (let i = 0; i < editText.length; i++) {
-    for (let j = 0; j < sesliHarfler.length; j++) {
-      if (
-        typeof editText[i] == "string" &&
-        editText[i].includes(sesliHarfler[j])
-      ) {
-        count++;
-      }
+    if (typeof editText[i] == "string" && sesliHarfler.includes(editText[i])) {
+      count++;
     }
   }
+
   return count;
 }
 
